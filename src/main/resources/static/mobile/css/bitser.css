@@ -1,0 +1,8 @@
+.demo-cards .mdl-card__actions .service-action,
+.service-card-title{
+	color: black;
+}
+
+.demo-drawer-header{
+	display: none;
+}

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="pt">
+  <head th:replace="header :: mainheader" />      
+  <body>
+    <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+      <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+        <div class="mdl-layout__header-row">
+          <span class="mdl-layout-title">Bit Services</span>
+          <div class="mdl-layout-spacer"></div>          
+          <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+            <i class="material-icons">more_vert</i>
+          </button>
+          <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+            <li id="paybeer" class="mdl-menu__item" th:text="${paybeer}" onclick="onPayBeer();"></li>
+          </ul>
+        </div>
+      </header>
+      <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
+        <header class="demo-drawer-header">
+          <img src="bitservices/images/user.jpg" class="demo-avatar"/>
+          <div class="demo-avatar-dropdown">
+            <span>hello@example.com</span>
+            <div class="mdl-layout-spacer"></div>
+            <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+              <i class="material-icons" role="presentation">arrow_drop_down</i>
+              <span class="visuallyhidden">Accounts</span>
+            </button>
+            <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
+              <li class="mdl-menu__item">hello@example.com</li>
+              <li class="mdl-menu__item">info@example.com</li>
+              <li class="mdl-menu__item"><i class="material-icons">add</i>Add another account...</li>
+            </ul>
+          </div>
+        </header>
+        <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
+          <a th:inline="text" class="mdl-navigation__link" href="/news"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">library_books</i>[[${news}]]</a>
+          <a th:inline="text" class="mdl-navigation__link" href="/bitservices"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">settings</i>[[${services}]]</a>
+          <a th:inline="text" class="mdl-navigation__link" href="/faucets"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">monetization_on</i>Faucets</a>
+          <a th:inline="text" class="mdl-navigation__link" href="/apps"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">android</i>Android Apps</a>
+          <a th:inline="text" class="mdl-navigation__link" href="/ptc"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">monetization_on</i>[[${ptc}]]</a>
+          <a th:inline="text" class="mdl-navigation__link" href="/wallets"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">account_balance_wallet</i>[[${wallets}]]</a>
+          <a th:inline="text" class="mdl-navigation__link" href="/help"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help</i>[[${help}]]</a>
+        </nav>
+      </div>
+      <main class="mdl-layout__content mdl-color--grey-100">
+        <div class="mdl-grid demo-content">
+          <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+              <div class="mdl-cell mdl-cell--4-col">
+                <h4 th:text="${help}"></h4>
+              </div>
+              <div class="mdl-cell mdl-cell--8-col">
+                  <p th:text="${helpText}"/>
+                  <a href="mailto:bitservices@acucaradus.com" target="_top">bitservices@acucaradus.com</a>
+              </div>                            
+          </div>
+        </div>
+      </main>
+      <footer th:replace="bitserfooter :: mainfooter"/>
+    </div>  
+    <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script src="bitservices/js/bitser.js"></script>
+  </body>
+</html>

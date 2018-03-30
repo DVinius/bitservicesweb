@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8"></meta>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" ></link>
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" media="screen,projection" ></link>
+    <link type="text/css" rel="stylesheet" href="css/bitser.css" ></link>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" ></meta>
+    <title>Bit Services</title>
+
+    <script async="async" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-7909463833396092",
+    enable_page_level_ads: true
+  });
+</script>
+</head>
+
+<body>
+    <header>
+            <nav>
+                    <div class="nav-wrapper light-blue lighten-1">
+                        <a href="/bitservices" class="brand-logo">Bit Services</a>
+                        <ul id="nav-mobile" class="right hide-on-med-and-down">
+                            <li>
+                                <a href="/promote" th:text="${promote}"></a>
+                            </li>
+                            <li>
+                                <a href="/reportbug" th:text="${reportbug}"></a>
+                            </li>
+                            <li>
+                                <a href="/paybeer" th:text="${paybeer}"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+    </header>
+    
+    <main>
+        <div class="container">
+          <h5 th:text="${underConstructionText}"></h5>
+
+          <h4 class="subtitle" th:text="${ads}"></h4>
+
+          <a href="https://btcclicks.com/?r=fda920ad"><img src="http://btcclicks.com/img/square.png" alt="BTCClicks.com Banner"/></a> 
+         
+        </div>
+    </main>
+    
+    <footer th:replace="bitserfooter :: mainfooter"/> 
+   
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+</body>
+
+</html>

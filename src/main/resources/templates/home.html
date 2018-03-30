@@ -1,0 +1,140 @@
+<!DOCTYPE HTML>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Açucaradus</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"/>
+<link rel="stylesheet" th:href="@{/css/slider.css}" href="../../css/slider.css" ></link>
+<link rel="stylesheet" th:href="@{/css/custom.css}" href="../../css/custom.css" ></link>
+
+<link rel="icon" type="image/png" href="../../images/bolo-icon.png" />
+
+<script async="async" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-7909463833396092",
+    enable_page_level_ads: true
+  });
+</script>
+</head>
+<body>
+
+	<!-- Slider -->
+	<div id="slider">
+		<div class="slides">
+			<div class="slider">
+				<div class="legend"></div>
+				<div class="content">
+					<div class="content-txt">
+						<h1>Preço de Inauguração</h1>
+						<h2>Experimente!</h2>
+					</div>
+				</div>
+				<div class="image">
+					<img src="../../images/bolos5.jpeg"/>
+				</div>
+			</div>
+			<div class="slider">
+				<div class="legend"></div>
+				<div class="content">
+					<div class="content-txt">
+						<h1>Feliz Natal!</h1>
+						<h2>E próspero ano novo!</h2>
+					</div>
+				</div>
+				<div class="image">
+					<img src="../../images/five-of-a-kind.jpeg"/>
+				</div>
+			</div>
+			<div class="slider">
+				<div class="legend"></div>
+				<div class="content">
+					<div class="content-txt">
+						<h1>O tradicional bolo de rolo de Pernambuco</h1>
+						<h2>Lei 13.436/08 reconheu o bolo como patrimônio imaterial de Pernambuco</h2>
+					</div>
+				</div>
+				<div class="image">
+					<img src="../../images/bolos3.jpeg"/>
+				</div>
+			</div>
+			<div class="slider">
+				<div class="legend"></div>
+				<div class="content">
+					<div class="content-txt">
+						<h1>Combina com tudo</h1>
+						<h2>Café da manhã, sobremesa, lanches, aniversário, casamento, bodas...</h2>
+					</div>
+				</div>
+				<div class="image">
+					<img src="../../images/combina.jpeg"/>
+				</div>
+			</div>			
+		</div>
+		<div class="switch">
+			<ul>
+				<li>
+					<div class="on"></div>
+				</li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div class="main-content">
+	
+	<div id="social-netw">
+		<a id="inst" target="_blank" href="https://www.instagram.com/acucaradusoficial/"><img src="../../images/instagram.jpg" /></a>
+	</div>
+	
+	<div class="container">
+		<div class="row sadrsfr">
+			<div class="col text">
+				<p>De origem portuguesa, o bolo de rolo foi adaptado com o recheio de goiaba, fruta abundante da região pernambucana.</p>
+		
+				<p>Até hoje é comum polvilhar o bolo com açúcar em sua camada externa, arrematando a apresentação da sobremesa.</p>
+				
+				<p class="small">Fonte Wikipédia</p>
+
+				<table id="price-table" class="table">
+					<thead>
+						<tr>
+							<th scope="col">Sabor</th>
+							<th scope="col">Disponibilidade</th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr th:each="data, iterstat: ${cakes}">
+							<td th:text="${data.description}" th:id="|td${iterstat.index}|"></td>
+							<td th:text="${data.available} ? 'Disponível' : 'Em breve'" th:id="|td${iterstat.index}"></td>
+						</tr>
+						</tbody>
+				</table>
+				
+				<h3>Gostou?</h3>
+				
+				<div th:switch="${deviceType}"> 
+		  			<p th:case="'normal'">Então faça seu pedido pelo WhatsApp (11) 99019-7663 ou ligue	para (11) 4375-1419.</p>
+		  			<p th:case="'mobile'">Então faça seu pedido pelo <a class="action" target="_blank" href="https://api.whatsapp.com/send?phone=5511990197663">WhatsApp</a> ou ligue	para <a class="action" href="tel:4375-1419">(11) 4375-1419</a>.</p>
+				</div>
+			
+			</div>
+			<div class="col image">
+				<img class="side-banner" src="../../images/christmas.jpg"/>
+			</div>
+		</div>
+		<iframe data-aa='790804' src='//acceptable.a-ads.com/790804' scrolling='no' style='border:0px; padding:0;overflow:hidden' allowtransparency='true'></iframe>
+	</div>
+	
+	</div>
+	
+	<footer>
+		<p>Açucaradus &copy; 1997 - 2017</p>
+	</footer>
+
+</body>
+</html>

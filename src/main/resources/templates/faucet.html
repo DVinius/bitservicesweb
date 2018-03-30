@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"></meta>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" ></link>
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" media="screen,projection" ></link>
+    <link type="text/css" rel="stylesheet" href="css/bitser.css" ></link>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" ></meta>
+    <title>Bit Services</title>
+    <script async="async" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-7909463833396092",
+    enable_page_level_ads: true
+  });
+</script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="nav-wrapper light-blue lighten-1">
+                <a href="/bitservices" class="brand-logo">Bit Services</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li>
+                        <a href="/promote" th:text="${promote}"></a>
+                    </li>
+                    <li>
+                        <a href="/reportbug" th:text="${reportbug}"></a>
+                    </li>
+                    <li>
+                        <a href="/paybeer" th:text="${paybeer}"></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <main>
+        <div class="container">
+            <p th:text="${sitepresentation}"></p>
+
+            <h5 class="subtitle" th:text="${services}"></h5>
+            <p th:if="${servicesList == null}" th:text="${servicesunavailable}"></p>
+            <table class="bordered" th:if="${servicesList != null}">
+                <thead>
+                    <tr>
+                        <th th:text="${name}"></th>
+                        <th th:text="${description}"></th>
+                    </tr>
+                </thead>
+        
+                <tbody>
+                    <tr class="row" th:each="serviceItem, iterstat: ${servicesList}">
+                        <td><a th:text="${serviceItem.name}" th:href="${serviceItem.url}"></a></td>
+                        <td th:text="${serviceItem.description}"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h5 class="subtitle">Faucets</h5>  
+            <table class="bordered">
+                <thead>
+                    <tr>
+                        <th th:text="${name}"></th>
+                        <th th:text="${description}"></th>
+                    </tr>
+                </thead>
+        
+                <tbody>
+                    <tr class="row" th:each="faucet, iterstat: ${faucets}">
+                        <td><a th:text="${faucet.name}" th:href="${faucet.url}" target="_blank"></a></td>
+                        <td th:text="${faucet.description}"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h5 class="subtitle">Android Apps</h5>  
+            <table class="bordered">
+                <thead>
+                    <tr>
+                        <th th:text="${name}"></th>
+                        <th th:text="${description}"></th>
+                    </tr>
+                </thead>
+        
+                <tbody>
+                    <tr class="row" th:each="androidApp, iterstat: ${androidApps}">
+                        <td><a th:text="${androidApp.name}" th:href="${androidApp.url}" target="_blank"></a></td>
+                        <td th:text="${androidApp.description}"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h5 class="subtitle" th:text="${ptc}"></h5>  
+            <table class="bordered">
+                <thead>
+                    <tr>
+                        <th th:text="${name}"></th>
+                        <th th:text="${description}"></th>
+                    </tr>
+                </thead>
+        
+                <tbody>
+                    <tr class="row" th:each="ptc, iterstat: ${ptcSites}">
+                        <td><a th:text="${ptc.name}" th:href="${ptc.url}" target="_blank"></a></td>
+                        <td th:text="${ptc.description}"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h5 class="subtitle" th:text="${wallets}"></h5>  
+            <table class="bordered">
+                <thead>
+                    <tr>
+                        <th th:text="${name}"></th>
+                        <th th:text="${description}"></th>
+                    </tr>
+                </thead>
+        
+                <tbody>
+                    <tr class="row" th:each="wallet, iterstat: ${walletsList}">
+                        <td><a th:text="${wallet.name}" th:href="${wallet.url}" target="_blank"></a></td>
+                        <td th:text="${wallet.description}"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h5 class="subtitle" th:text="${ads}"></h5>
+            <table class="bordered">
+                    <thead>
+                        <tr>
+                            <th th:text="${name}"></th>
+                            <th th:text="${description}"></th>
+                        </tr>
+                    </thead>
+            
+                    <tbody>
+                        <tr class="row" th:each="adsItem, iterstat: ${adsList}">
+                            <td><a th:text="${adsItem.name}" th:href="${adsItem.url}" target="_blank"></a></td>
+                            <td th:text="${adsItem.description}"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <a target="_blank" href="http://bitcofarm.com/home?r=DVinius"><img src="http://bitcofarm.com/img/banner1.gif" width="468" height="60"/></a>
+                <br/>
+            <a href="https://btcclicks.com/?r=fda920ad" target="_blank"><img src="http://btcclicks.com/img/square.png" alt="BTCClicks.com Banner"/></a> 
+
+            <iframe data-aa='790804' src='//acceptable.a-ads.com/790804' scrolling='no' style='border:0px; padding:0;overflow:hidden' allowtransparency='true'></iframe>
+
+        </div>
+    </main>
+    
+    <footer class="page-footer">
+        <div class="footer-copyright">
+            <div class="container">
+            <i class="material-icons">location_on</i>
+            <br/>
+            <span th:text="${displayCountry}"/> <br/>
+             © 2017 BitServices
+            </div>
+        </div>
+    </footer>              
+   
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+</body>
+
+</html>

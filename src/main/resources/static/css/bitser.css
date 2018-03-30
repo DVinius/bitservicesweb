@@ -1,0 +1,49 @@
+@import 'custom.css';
+
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+    
+
+.brand-logo{
+  margin-left: 2em;
+}
+
+.page-footer{
+  background: #29b6f6;
+}
+
+footer{
+  margin-top: 5em;
+}
+
+table.bordered{
+  margin-bottom: 3em;
+}
+
+header{
+  margin-bottom: 1em;
+}
+
+form{
+  margin-bottom: 3em;
+}
+
+.error{
+  color: red;
+}
+
+#btcrecvalue{
+  font-size: 22px;
+}
+
+input#walletAddress{
+  color: black;
+}

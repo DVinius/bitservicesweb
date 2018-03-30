@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="description" content="News about crypto currency"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0"/>
+    <title th:text="${newsItem.title}"></title>
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes"/>
+    <link rel="icon" sizes="192x192" href="images/android-desktop.png"/>
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="apple-mobile-web-app-title" content="Material Design Lite"/>
+    <link rel="apple-touch-icon-precomposed" href="images/ios-desktop.png"/>
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png"/>
+    <meta name="msapplication-TileColor" content="#3372DF"/>
+
+    <link rel="shortcut icon" href="https://storage.googleapis.com/app-static-files/images/icon.png"/>
+
+    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+    <!--
+    <link rel="canonical" href="http://www.example.com/">
+    -->
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.teal-red.min.css"/>
+    <link rel="stylesheet" href="https://storage.googleapis.com/app-static-files/css/news-styles.css"/>
+    <style>
+    #view-source {
+      position: fixed;
+      display: block;
+      right: 0;
+      bottom: 0;
+      margin-right: 40px;
+      margin-bottom: 40px;
+      z-index: 900;
+    }
+    </style>
+    <meta name="maValidation" content="635bb378383a03758ddaf7aeb3c1fedb" />
+  </head>
+  <body>
+      <div id="fb-root"></div>
+      <script src="https://storage.googleapis.com/app-static-files/js/fbscript.js"></script>
+
+    <div class="demo-layout mdl-layout mdl-layout--fixed-header mdl-js-layout mdl-color--grey-100">
+      <header class="demo-header mdl-layout__header mdl-layout__header--scroll mdl-color--grey-100 mdl-color-text--grey-800">
+        <div class="mdl-layout__header-row">
+          <span class="mdl-layout-title"><a href="/news">Bit Services</a></span>
+          <div class="mdl-layout-spacer"></div>
+        </div>
+      </header>
+      <div class="demo-ribbon"></div>
+      <main class="demo-main mdl-layout__content news-article">
+        <div class="demo-container mdl-grid">
+          <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+          <div class="demo-content mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">
+            <div th:inline="text" class="demo-crumbs mdl-color-text--grey-500">
+              <a href="/bitservices">Bit Services</a> &gt; <a href="/news">[[${news}]]</a>
+            </div>
+
+            <div class="mdl-grid">
+              <div class="mdl-cell mdl-cell--1-col mdl-grid">
+                  <div class="mdl-cell mdl-cell--12-col">
+                    <img class="article-icon" th:src="${newsItem.img}" />
+                  </div>                
+              </div>
+              <div th:inline="text" class="mdl-cell mdl-cell--11-col mdl-grid">
+                <div class="mdl-cell mdl-cell--12-col">
+                  <h3 id="news-title">[[${newsItem.title}]]</h3>
+                </div>
+                <div class="mdl-cell mdl-cell--6-col">
+                  <td th:text="${#dates.format(newsItem.publishedDate, 'dd/MM/yyyy')}"></td>
+                </div>
+              </div>
+              <div th:utext="${newsItem.myComment}" class="mdl-cell mdl-cell--12-col mdl-grid">
+              </div>
+              <div class="mdl-cell mdl-cell--12-col mdl-grid">
+                <a th:href="${newsItem.url}" th:text="${original}"></a> 
+              </div>
+            </div>
+
+            <div class="mdl-grid">
+              <div th:inline="text" class="mdl-cell mdl-cell--6-col votes hot" onclick="showRecaptcha(1)">
+                <img id="hot" class="article-icon" src="https://storage.googleapis.com/app-static-files/images/fire.png" />
+                <span id="amVotesUp" th:text="${newsItem.votesUp}" />
+              </div>
+              <div th:inline="text" class="mdl-cell mdl-cell--6-col votes cold" onclick="showRecaptcha(2)">
+                <img id="cold" class="article-icon" src="https://storage.googleapis.com/app-static-files/images/ice.png" />
+                <span id="amVotesDown" th:text="${newsItem.votesDown}" />
+              </div>
+              <div id="grecaptcha" class="mdl-cell mdl-cell--12-col recaptcha">
+                <form onsubmit="return cancelSubmit()">                  
+                  <script src="https://authedmine.com/lib/captcha.min.js" async="async"></script>
+                  <div class="coinhive-captcha" data-hashes="256" data-whitelabel="true" data-key="pgE0JGwiYnTADE2DFdiIem4el1kZZ2ef" >
+                    <em>Loading Captcha...</em>
+                  </div>
+                  <br/>
+                  <input type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" th:value="${submit}"/>
+                
+                </form>                  
+              </div>
+              <div id="voteprogress" class="mdl-cell mdl-cell--12-col invisible">
+                <div class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
+              </div>
+            </div>
+
+            <div id="fbcomment" class="fb-comments" data-numposts="5"></div>   
+            <script>
+              document.getElementById('fbcomment').setAttribute("data-href", window.location.href);
+            </script>     
+
+            <div class="mdl-grid">
+                <div class="mdl-cell mdl-cell--6-col votes hot">
+                  <iframe data-aa='813476' src='//acceptable.a-ads.com/813476' scrolling='no' style='border:0px; padding:0;overflow:hidden' allowtransparency='true'></iframe>
+                </div>
+            </div>
+          </div>        
+        </div>        
+        <footer th:replace="bitserfooter :: mainfooter"/>
+      </main>
+    </div>
+    <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script th:inline="text">
+        var nid = [[${newsItem.nid}]];
+    </script>
+    <script src="https://storage.googleapis.com/app-static-files/js/article.js"></script>    
+  </body>
+</html>

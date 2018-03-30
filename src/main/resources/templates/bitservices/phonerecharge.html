@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="pt">
+  <head th:replace="header :: mainheader" /> 
+  <body>
+    <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+      <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+        <div class="mdl-layout__header-row">
+          <span class="mdl-layout-title">Bit Services</span>
+          <div class="mdl-layout-spacer"></div>          
+          <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+            <i class="material-icons">more_vert</i>
+          </button>
+          <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+            <li id="paybeer" class="mdl-menu__item" th:text="${paybeer}" onclick="onPayBeer();"></li>
+          </ul>
+        </div>
+      </header>
+      <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
+        <header class="demo-drawer-header">
+          <img src="bitservices/images/user.jpg" class="demo-avatar"/>
+          <div class="demo-avatar-dropdown">
+            <span>hello@example.com</span>
+            <div class="mdl-layout-spacer"></div>
+            <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+              <i class="material-icons" role="presentation">arrow_drop_down</i>
+              <span class="visuallyhidden">Accounts</span>
+            </button>
+            <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
+              <li class="mdl-menu__item">hello@example.com</li>
+              <li class="mdl-menu__item">info@example.com</li>
+              <li class="mdl-menu__item"><i class="material-icons">add</i>Add another account...</li>
+            </ul>
+          </div>
+        </header>
+        <nav th:replace="bitsernav :: mainnav" />
+      </div>
+      <main class="mdl-layout__content mdl-color--grey-100 mobilerecharge">
+        <div class="mdl-grid demo-content">
+          <div id="formsgrid" class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+            <div class="mdl-cell mdl-cell--12-col">
+              <p th:text="${fillFormRecharge}"></p>
+              <div id="rec-error" th:if="${showError != null}">
+                <p class="error" th:text="${recErrorMessage}"></p>
+              </div>                                
+            </div>   
+            <div id="paymdetails" class="mdl-cell mdl-cell--6-col mdl-grid qrarea" th:if="${phoneRecharge.wallet != null}">
+              <div id="paymenttitle" class="mdl-cell mdl-cell--12-col">
+                  <h4 id="payheader">Detalhes de Pagamento</h4>
+                  <p>Agora, basta transferir <strong id="btcrecvalue" th:text="${phoneRecharge.valueToDeposit}"></strong> BTC para a carteira abaixo: </p>                                        
+              </div>
+              <div id="paymentcode" class="mdl-cell mdl-cell--12-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input id="walletAddress" name="wallet_address" readonly="readonly" th:value="${phoneRecharge.wallet.myAddress}" class="mdl-textfield__input" type="text"/>
+                <label class="mdl-textfield__label" for="walletAddress" th:text="${wallet}"></label>
+              </div>                
+              <div id="paymentbutton" class="mdl-cell mdl-cell--12-col">
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" onclick="copytoclipboard()">Copiar endereço
+                  <i class="material-icons right">content_copy</i>
+                </button>
+              </div> 
+              <div id="paymentqr" class="mdl-cell mdl-cell--12-col">
+                <img src="images/1JMHXL2vxckW76g6LDth92eSkA1L4PUEek.png"/>
+              </div>                                                      
+            </div> 
+              <div class="mdl-cell mdl-cell--6-col mdl-grid">
+                  <h4 id="payinfo">Recarga de Telefone</h4>
+                  <form id="phoneRech" class="bitser" th:action="@{/phonerecharge}" th:object="${phoneRecharge}" method="post">
+                    <div class="mdl-textfield mdl-cell--6-col mdl-js-textfield mdl-textfield--floating-label">
+                      <input class="mdl-textfield__input" type="text" id="uname" th:field="*{name}"/>
+                      <label class="mdl-textfield__label" for="uname" th:text="${name}"></label>
+                    </div>
+                    <div class="mdl-textfield mdl-cell--6-col mdl-js-textfield mdl-textfield--floating-label">
+                      <input th:field="*{user.mobilePhoneNumber}" class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="uphone"/>
+                      <label th:text="${phoneNumber}" class="mdl-textfield__label" for="uphone"></label>
+                      <span class="mdl-textfield__error" th:text="${inputValidationPhone}"></span>
+                    </div>
+                    <div class="mdl-textfield mdl-cell--6-col mdl-js-textfield mdl-textfield--floating-label">    
+                      <h6 class="optitle">Operadora</h6>                  
+                      <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="claro">
+                        <input type="radio" th:field="*{mobileProvider}" value="1" checked="checked" id="claro" class="mdl-radio__button" name="mobprovider" />
+                        <span class="mdl-radio__label">Claro</span>                                                                                                                                              
+                      </label>    
+                      <br/>                         
+                      <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="vivo">
+                          <input type="radio" th:field="*{mobileProvider}" value="2" id="vivo" class="mdl-radio__button" name="mobprovider" />
+                          <span class="mdl-radio__label">Vivo</span>
+                      </label>    
+                      <br/>    
+                      <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="tim">
+                          <input type="radio" th:field="*{mobileProvider}" value="3" id="tim" class="mdl-radio__button" name="mobprovider" />
+                          <span class="mdl-radio__label">Tim</span>
+                      </label>       
+                      <br/>  
+                      <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="oi">
+                          <input type="radio" th:field="*{mobileProvider}" value="4" id="oi" class="mdl-radio__button" name="mobprovider" />
+                          <span class="mdl-radio__label">Oi</span>
+                      </label>
+                    </div>
+                    <div class="mdl-textfield mdl-cell--6-col mdl-js-textfield mdl-textfield--floating-label">
+                      <h6 class="optitle">Valor</h6>
+                      <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="rec15">
+                          <input type="radio" th:field="*{value}" value="15" checked="checked" id="rec15" class="mdl-radio__button" name="rechargevalue" />
+                          <span class="mdl-radio__label">R$ 15</span>                                                                                                                                              
+                      </label>    
+                      <br/>                         
+                      <label class="mdl-radio mdl-cell--6-col mdl-js-radio mdl-js-ripple-effect" for="rec20">
+                          <input type="radio" th:field="*{value}" value="20" id="rec20" class="mdl-radio__button" name="rechargevalue" />
+                          <span class="mdl-radio__label">R$ 20</span>
+                      </label>                       
+                    </div>
+                    <div class="mdl-textfield mdl-cell--12-col mdl-js-textfield mdl-textfield--floating-label">
+                      <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="submit" name="action">Calcular BTC
+                          <i class="material-icons right">send</i>
+                      </button>
+                    </div>
+                  </form>
+              </div>                     
+          </div>       
+        </div>
+      </main>
+      <footer th:replace="bitserfooter :: mainfooter"/>
+    </div>
+    <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script src="https://storage.googleapis.com/app-static-files/js/bitser.js"></script>
+  </body>
+</html>

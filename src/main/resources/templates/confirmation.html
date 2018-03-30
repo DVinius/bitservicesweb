@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Açucaradus</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"/>
+<link rel="stylesheet" th:href="@{/css/slider.css}" href="../../css/slider.css" ></link>
+<link rel="stylesheet" th:href="@{/css/custom.css}" href="../../css/custom.css" ></link>
+
+<link rel="icon" type="image/png" href="../../images/bolo-icon.png" />
+
+</head>
+<body>
+
+	<!-- Slider -->
+	<div id="slider">
+		<div class="slides">
+			<div class="slider">
+				<div class="legend"></div>
+				<div class="content">
+					<div class="content-txt">
+						<h1>Preço de Inauguração</h1>
+						<h2>Experimente! Sabores a partir de R$ 40,00/kg.</h2>
+					</div>
+				</div>
+				<div class="image">
+					<img src="../../images/bolos5.jpeg"/>
+				</div>
+			</div>
+			<div class="slider">
+				<div class="legend"></div>
+				<div class="content">
+					<div class="content-txt">
+						<h1>Não é rocambole!</h1>
+						<h2></h2>
+					</div>
+				</div>
+				<div class="image">
+					<img src="../../images/bolos2.jpeg"/>
+				</div>
+			</div>
+			<div class="slider">
+				<div class="legend"></div>
+				<div class="content">
+					<div class="content-txt">
+						<h1>O tradicional bolo de rolo de Pernambuco</h1>
+						<h2>Lei 13.436/08 reconheu o bolo como patrimônio imaterial de Pernambuco</h2>
+					</div>
+				</div>
+				<div class="image">
+					<img src="../../images/bolos3.jpeg"/>
+				</div>
+			</div>
+			<div class="slider">
+				<div class="legend"></div>
+				<div class="content">
+					<div class="content-txt">
+						<h1>Combina com tudo</h1>
+						<h2>Café da manhã, sobremesa, lanches, aniversário, casamento, bodas...</h2>
+					</div>
+				</div>
+				<div class="image">
+					<img src="../../images/bolos4.jpeg"/>
+				</div>
+			</div>
+		</div>
+		<div class="switch">
+			<ul>
+				<li>
+					<div class="on"></div>
+				</li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div class="main-content">
+	
+	<div id="social-netw">
+		<a id="inst" href="https://www.instagram.com/acucaradusoficial/"><img src="../../images/instagram.jpg" /></a>
+	</div>
+	
+		<h3>Confirmação</h3>
+		
+		<form id="confirmOrder" action="#" method="post">
+			<div class="form-row">
+				<label th:text="'Número do Pedido:'"></label><strong th:text="${order.code}"></strong> 
+			</div>
+			<div class="form-row">
+				<label th:text="'Nome:'"></label><strong th:text="${order.customerName}"></strong> 
+			</div>
+			<div class="form-row">
+				<label th:text="'Fone para contato:'"></label><strong th:text="${order.customerPhone}"></strong> 
+			</div>
+			<div class="form-row">
+				<label th:text="'Endereço:'"></label><strong th:text="${order.address}"></strong> 
+			</div>
+			<div class="form-row">
+				<label th:text="'Sabor:'"></label><strong th:text="${order.cake.description}"></strong> 
+			</div>
+			<div class="form-row">
+				<label th:text="'Quantidade:'"></label><strong th:text="${order.amount}"></strong> 
+			</div>
+			<div class="form-row">
+				<label th:text="'Valor do Pedido:'"></label><strong th:text="${order.total}"></strong> 
+			</div>
+			<button type="submit" class="btn btn-primary">Confirmar Pedido</button>
+		</form>
+		
+		
+	</div>
+	
+	<footer>
+		<p>Açucaradus &copy; 1997 - 2017</p>
+	</footer>
+
+</body>
+</html>

@@ -1,0 +1,87 @@
+.demo-cards .mdl-card__actions .service-action,
+.service-card-title{
+	color: black;
+}
+
+.demo-drawer-header{
+	display: none;
+}
+
+.mdl-card__media img.bitser{
+	height: 144px;
+	width: 100%;
+}
+
+#formsgrid{
+	align-items: initial;
+}
+
+.mdl-mini-footer{
+	padding: 9px 16px;
+}
+
+#payheader, #payinfo, #paymenttitle{
+	margin-top: 0;
+}
+
+.mobrech{
+	align-items: initial;
+}
+
+main.mobilerecharge h6.optitle{
+	color: rgb(0,188,212);
+	margin-top: 0;
+	margin-bottom: 0.5em;
+}
+
+main.mobilerecharge .mdl-textfield .mdl-button {
+	position: static;
+}
+
+main.mobilerecharge p.error{
+	color: red;
+}
+
+form.bitser label{
+	color: rgb(0, 188, 212);
+}
+
+form.bitser label{
+	color: rgb(0, 188, 212);
+}
+
+form#ubergft h6.optitle{
+	margin-top: 0;
+}
+
+form.bitser .mdl-radio{
+	color: black;
+}
+
+main#uber p.error{
+	color:red;
+}
+
+main.news a{
+	color:blue;
+	text-decoration: none;
+}
+
+img.news-icon{
+	width: 48px;
+	height: 48px;
+	margin-right: 1em;
+	border-radius: 24px;
+}
+
+@media screen and (min-width: 1024px) {
+	footer{
+		margin-left: 240px;
+   }
+}
+ 
+@media screen and ( max-height: 600px ) {
+	.mdl-mini-footer{
+		display: none;
+   }
+}

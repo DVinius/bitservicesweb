@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8"></meta>
+    <!--Import Google Icon Font Mobile-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" ></link>
+    <!--Import materialize.css Mobile-->
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" media="screen,projection" ></link>
+    <link type="text/css" rel="stylesheet" href="mobile/css/bitser.css" ></link>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" ></meta>
+    <title>Bit Services Mobile</title>
+    <script async="async" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-7909463833396092",
+    enable_page_level_ads: true
+  });
+</script>
+</head>
+
+<body>
+    <nav class="light-blue lighten-1" role="navigation">
+        <div class="nav-wrapper container"><a id="logo-container" href="/bitservices" class="brand-logo">Bit Services</a>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="#">Navbar Link</a></li>
+          </ul>
+    
+          <ul id="nav-mobile" class="side-nav">
+            <li><a href="/promote"><span th:text="${promote}"></span></a></li>
+            <li><a href="/reportbug"><span th:text="${reportbug}"></span></a></li>
+            <li><a href="/paybeer"><span th:text="${paybeer}"></span></a></li>
+          </ul>
+          <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+        </div>
+      </nav>
+
+        
+    <section class="main">
+        <h5 th:text="${underConstructionText}"></h5>
+
+        <h4 class="subtitle" th:text="${ads}"></h4>
+
+        <a href="https://btcclicks.com/?r=fda920ad"><img src="http://btcclicks.com/img/square.png" alt="BTCClicks.com Banner"/></a> 
+                
+    </section>
+
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/bitser.js"></script>
+</body>
+
+</html>
